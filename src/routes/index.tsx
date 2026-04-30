@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
   CheckCircle2,
@@ -9,8 +9,20 @@ import {
   Sparkles,
   Building2,
   Calendar,
+  Briefcase,
+  LogOut,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,20 +48,7 @@ function Landing() {
             <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Link
-              to="/auth"
-              className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted sm:inline-flex"
-            >
-              Sign in
-            </Link>
-            <Link
-              to="/auth"
-              search={{ mode: "signup" }}
-              className="inline-flex items-center gap-1.5 rounded-lg gradient-emerald px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5"
-            >
-              Get started
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <AuthNav />
           </div>
         </div>
       </header>
