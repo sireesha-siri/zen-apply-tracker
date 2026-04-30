@@ -14,7 +14,7 @@ export const Route = createFileRoute("/auth")({
   validateSearch: searchSchema,
   beforeLoad: async () => {
     const { data } = await supabase.auth.getSession();
-    if (data.session) throw redirect({ to: "/dashboard" });
+    if (data.session) throw redirect({ to: "/applications" });
   },
   head: () => ({
     meta: [
@@ -41,16 +41,16 @@ function AuthPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/dashboard` },
+          options: { emailRedirectTo: `${window.location.origin}/applications` },
         });
         if (error) throw error;
         toast.success("Welcome to ApplyZen!");
-        navigate({ to: "/dashboard" });
+        navigate({ to: "/applications" });
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         toast.success("Signed in");
-        navigate({ to: "/dashboard" });
+        navigate({ to: "/applications" });
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong";
