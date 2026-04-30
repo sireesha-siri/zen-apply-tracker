@@ -14,7 +14,71 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          company_name: string
+          created_at: string
+          date_applied: string
+          id: string
+          job_link: string | null
+          notes: string | null
+          role: string
+          salary: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          company_name: string
+          created_at?: string
+          date_applied?: string
+          id?: string
+          job_link?: string | null
+          notes?: string | null
+          role: string
+          salary?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          company_name?: string
+          created_at?: string
+          date_applied?: string
+          id?: string
+          job_link?: string | null
+          notes?: string | null
+          role?: string
+          salary?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
