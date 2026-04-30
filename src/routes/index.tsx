@@ -180,6 +180,78 @@ function Landing() {
   );
 }
 
+function AuthNav() {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  async function handleSignOut() {
+    await supabase.auth.signOut();
+    navigate({ to: "/" });
+  }
+
+  if (loading) {
+    return <div className="h-9 w-24 animate-pulse rounded-lg bg-muted" />;
+  }
+
+  if (user) {
+    const initial = (user.email ?? "?").charAt(0).toUpperCase();
+    return (
+      <>
+        <Link
+          to="/applications"
+          className="hidden items-center gap-1.5 rounded-lg gradient-emerald px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5 sm:inline-flex"
+        >
+          <Briefcase className="h-4 w-4" />
+          Applications
+        </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="inline-flex items-center rounded-full outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring">
+            <Avatar className="h-9 w-9">
+              <AvatarFallback className="bg-primary/10 text-primary font-semibold text-sm">
+                {initial}
+              </AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <div className="px-2 py-1.5 text-xs text-muted-foreground truncate">{user.email}</div>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <Link to="/applications" className="cursor-pointer">
+                <Briefcase className="mr-2 h-4 w-4" />
+                Applications
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer text-destructive focus:text-destructive">
+              <LogOut className="mr-2 h-4 w-4" />
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Link
+        to="/auth"
+        className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted sm:inline-flex"
+      >
+        Sign in
+      </Link>
+      <Link
+        to="/auth"
+        search={{ mode: "signup" }}
+        className="inline-flex items-center gap-1.5 rounded-lg gradient-emerald px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5"
+      >
+        Get started
+        <ArrowRight className="h-4 w-4" />
+      </Link>
+    </>
+  );
+}
+
 function DashboardPreview() {
   const stats = [
     { label: "Total", value: 24, color: "text-foreground" },
