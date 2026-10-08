@@ -28,7 +28,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "ApplyZen — Track every application. Land your dream job." },
-      { name: "description", content: "The clean, calm way to track job applications. Status, notes, salary, links — all in one dashboard." },
+      {
+        name: "description",
+        content:
+          "The clean, calm way to track job applications. Status, notes, salary, links — all in one dashboard.",
+      },
       { property: "og:title", content: "ApplyZen — Job Application Tracker" },
       { property: "og:description", content: "Track every application. Land your dream job." },
     ],
@@ -44,8 +48,12 @@ function Landing() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <Logo />
           <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-            <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
+            <a href="#features" className="hover:text-foreground transition-colors">
+              Features
+            </a>
+            <a href="#how" className="hover:text-foreground transition-colors">
+              How it works
+            </a>
           </nav>
           <div className="flex items-center gap-2">
             <AuthNav />
@@ -67,7 +75,8 @@ function Landing() {
               <span className="text-gradient">Land your dream job.</span>
             </h1>
             <p className="animate-slide-up delay-100 mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-              ApplyZen brings every job you've applied to into one calm, organized dashboard — so nothing slips through the cracks.
+              ApplyZen brings every job you've applied to into one calm, organized dashboard — so
+              nothing slips through the cracks.
             </p>
             <div className="animate-slide-up delay-200 mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
@@ -86,9 +95,15 @@ function Landing() {
               </Link>
             </div>
             <div className="animate-fade-in delay-300 mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free forever</span>
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> No credit card</span>
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Private &amp; secure</span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Free forever
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> No credit card
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Private &amp; secure
+              </span>
             </div>
           </div>
 
@@ -102,18 +117,46 @@ function Landing() {
       {/* Features */}
       <section id="features" className="mx-auto max-w-6xl px-6 py-20">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Everything in one calm place</h2>
-          <p className="mt-4 text-muted-foreground">No spreadsheets. No sticky notes. Just clarity.</p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            Everything in one calm place
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            No spreadsheets. No sticky notes. Just clarity.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {[
-            { icon: LayoutDashboard, title: "Beautiful dashboard", desc: "See every application, status, and stat at a glance." },
-            { icon: Filter, title: "Smart filters", desc: "Filter by Applied, Interview, Offer, or Rejected in one click." },
-            { icon: BarChart3, title: "Live stats", desc: "Track your funnel — applications, interviews, offers." },
-            { icon: Building2, title: "Rich detail", desc: "Capture role, salary, link, and notes for every opportunity." },
-            { icon: ShieldCheck, title: "Private by default", desc: "Your data is yours. Encrypted and protected by row-level security." },
-            { icon: Sparkles, title: "Zero clutter", desc: "A focused interface designed to reduce job-search anxiety." },
+            {
+              icon: LayoutDashboard,
+              title: "Beautiful dashboard",
+              desc: "See every application, status, and stat at a glance.",
+            },
+            {
+              icon: Filter,
+              title: "Smart filters",
+              desc: "Filter by Applied, Interview, Offer, or Rejected in one click.",
+            },
+            {
+              icon: BarChart3,
+              title: "Live stats",
+              desc: "Track your funnel — applications, interviews, offers.",
+            },
+            {
+              icon: Building2,
+              title: "Rich detail",
+              desc: "Capture role, salary, link, and notes for every opportunity.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Private by default",
+              desc: "Your data is yours. Encrypted and protected by row-level security.",
+            },
+            {
+              icon: Sparkles,
+              title: "Zero clutter",
+              desc: "A focused interface designed to reduce job-search anxiety.",
+            },
           ].map((f, i) => (
             <div
               key={f.title}
@@ -134,13 +177,27 @@ function Landing() {
       <section id="how" className="border-t border-border bg-muted/30 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Three steps to clarity</h2>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Three steps to clarity
+            </h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { n: "01", title: "Sign up free", desc: "Create your account in seconds with email and password." },
-              { n: "02", title: "Add applications", desc: "Log every role you apply for with company, salary, and notes." },
-              { n: "03", title: "Stay on top", desc: "Update statuses as you move forward and never miss a follow-up." },
+              {
+                n: "01",
+                title: "Sign up free",
+                desc: "Create your account in seconds with email and password.",
+              },
+              {
+                n: "02",
+                title: "Add applications",
+                desc: "Log every role you apply for with company, salary, and notes.",
+              },
+              {
+                n: "03",
+                title: "Stay on top",
+                desc: "Update statuses as you move forward and never miss a follow-up.",
+              },
             ].map((s) => (
               <div key={s.n} className="rounded-2xl bg-card p-8 shadow-soft">
                 <div className="text-3xl font-extrabold text-gradient">{s.n}</div>
@@ -158,7 +215,9 @@ function Landing() {
           <h2 className="text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
             Your next role is one tracker away.
           </h2>
-          <p className="mt-4 text-primary-foreground/90">Join job seekers who replaced messy spreadsheets with calm.</p>
+          <p className="mt-4 text-primary-foreground/90">
+            Join job seekers who replaced messy spreadsheets with calm.
+          </p>
           <Link
             to="/auth"
             search={{ mode: "signup" }}
@@ -222,7 +281,10 @@ function AuthNav() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer text-destructive focus:text-destructive">
+            <DropdownMenuItem
+              onClick={handleSignOut}
+              className="cursor-pointer text-destructive focus:text-destructive"
+            >
               <LogOut className="mr-2 h-4 w-4" />
               Logout
             </DropdownMenuItem>
@@ -290,14 +352,19 @@ function DashboardPreview() {
             <div className="col-span-2 text-right">Date</div>
           </div>
           {apps.map((a) => (
-            <div key={a.co} className="grid grid-cols-12 gap-2 border-t border-border px-4 py-3 text-sm">
+            <div
+              key={a.co}
+              className="grid grid-cols-12 gap-2 border-t border-border px-4 py-3 text-sm"
+            >
               <div className="col-span-4 flex items-center gap-2 font-medium">
                 <Building2 className="h-4 w-4 text-muted-foreground" />
                 {a.co}
               </div>
               <div className="col-span-4 text-muted-foreground">{a.role}</div>
               <div className="col-span-2">
-                <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${badge[a.status]}`}>
+                <span
+                  className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${badge[a.status]}`}
+                >
                   {a.status}
                 </span>
               </div>

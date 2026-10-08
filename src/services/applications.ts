@@ -18,7 +18,7 @@ export async function getAllApplications(): Promise<Application[]> {
 }
 
 export async function createApplication(
-  payload: Omit<ApplicationInsert, "user_id">
+  payload: Omit<ApplicationInsert, "user_id">,
 ): Promise<Application> {
   const { data: userData } = await supabase.auth.getUser();
   const userId = userData.user?.id;
@@ -35,7 +35,7 @@ export async function createApplication(
 
 export async function updateApplication(
   id: string,
-  patch: ApplicationUpdate
+  patch: ApplicationUpdate,
 ): Promise<Application> {
   const { data, error } = await supabase
     .from("applications")

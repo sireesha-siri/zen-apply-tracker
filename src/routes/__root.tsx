@@ -31,15 +31,38 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ApplyZen — Track every application. Land your dream job." },
-      { name: "description", content: "ApplyZen helps job seekers organize, track, and manage every job application in one clean dashboard." },
+      {
+        name: "description",
+        content:
+          "ApplyZen helps job seekers organize, track, and manage every job application in one clean dashboard.",
+      },
       { property: "og:title", content: "ApplyZen — Track every application. Land your dream job." },
-      { property: "og:description", content: "ApplyZen helps job seekers organize, track, and manage every job application in one clean dashboard." },
+      {
+        property: "og:description",
+        content:
+          "ApplyZen helps job seekers organize, track, and manage every job application in one clean dashboard.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "ApplyZen — Track every application. Land your dream job." },
-      { name: "twitter:description", content: "ApplyZen helps job seekers organize, track, and manage every job application in one clean dashboard." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/00afa0db-35d3-4596-8454-c97cecb1dd5f/id-preview-3b27cd90--63a037de-fad8-4009-9b1c-ea1e93d307df.lovable.app-1777573531048.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/00afa0db-35d3-4596-8454-c97cecb1dd5f/id-preview-3b27cd90--63a037de-fad8-4009-9b1c-ea1e93d307df.lovable.app-1777573531048.png" },
+      {
+        name: "twitter:title",
+        content: "ApplyZen — Track every application. Land your dream job.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "ApplyZen helps job seekers organize, track, and manage every job application in one clean dashboard.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/00afa0db-35d3-4596-8454-c97cecb1dd5f/id-preview-3b27cd90--63a037de-fad8-4009-9b1c-ea1e93d307df.lovable.app-1777573531048.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/00afa0db-35d3-4596-8454-c97cecb1dd5f/id-preview-3b27cd90--63a037de-fad8-4009-9b1c-ea1e93d307df.lovable.app-1777573531048.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

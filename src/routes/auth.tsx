@@ -19,7 +19,10 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Sign in — ApplyZen" },
-      { name: "description", content: "Sign in or create your ApplyZen account to start tracking job applications." },
+      {
+        name: "description",
+        content: "Sign in or create your ApplyZen account to start tracking job applications.",
+      },
     ],
   }),
   component: AuthPage,
@@ -137,7 +140,9 @@ function AuthPage() {
           </div>
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-foreground transition-colors">← Back to home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              ← Back to home
+            </Link>
           </p>
         </div>
       </main>

@@ -152,7 +152,6 @@ The production build uses Nitro's Vercel preset and generates Vercel's Build Out
 2. Set the install command to `npm ci` and the build command to `npm run build`.
 3. Use Node.js 22.12 or later in the Vercel project settings.
 4. Add these environment variables to the Vercel project for every environment you deploy:
-
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_PUBLISHABLE_KEY`
    - `SUPABASE_URL`

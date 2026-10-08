@@ -90,7 +90,8 @@ function ApplicationsPage() {
   const filtered = useMemo(() => {
     return apps.filter((a) => {
       if (filter !== "All" && a.status !== filter) return false;
-      if (query && !`${a.company_name} ${a.role}`.toLowerCase().includes(query.toLowerCase())) return false;
+      if (query && !`${a.company_name} ${a.role}`.toLowerCase().includes(query.toLowerCase()))
+        return false;
       return true;
     });
   }, [apps, filter, query]);
@@ -133,7 +134,9 @@ function ApplicationsPage() {
         {/* Sidebar */}
         <aside className="hidden w-64 shrink-0 flex-col border-r border-border bg-sidebar md:flex">
           <div className="px-6 py-5">
-            <Link to="/"><Logo /></Link>
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
           <nav className="flex-1 px-3 py-4 space-y-1">
             <div className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-semibold bg-sidebar-accent text-sidebar-accent-foreground">
@@ -143,7 +146,9 @@ function ApplicationsPage() {
           </nav>
           <div className="border-t border-sidebar-border p-3">
             <div className="rounded-lg px-3 py-2 text-xs">
-              <div className="font-semibold text-sidebar-foreground truncate">{email || "Signed in"}</div>
+              <div className="font-semibold text-sidebar-foreground truncate">
+                {email || "Signed in"}
+              </div>
               <button
                 onClick={handleSignOut}
                 className="mt-2 inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
@@ -159,8 +164,14 @@ function ApplicationsPage() {
         <main className="flex-1 px-6 py-6 md:px-10 md:py-8">
           {/* Mobile header */}
           <div className="mb-6 flex items-center justify-between md:hidden">
-            <Link to="/"><Logo /></Link>
-            <button onClick={handleSignOut} className="text-sm text-muted-foreground" aria-label="Sign out">
+            <Link to="/">
+              <Logo />
+            </Link>
+            <button
+              onClick={handleSignOut}
+              className="text-sm text-muted-foreground"
+              aria-label="Sign out"
+            >
               <LogOut className="h-4 w-4" />
             </button>
           </div>
@@ -174,7 +185,10 @@ function ApplicationsPage() {
               </p>
             </div>
             <button
-              onClick={() => { setEditing(null); setDialogOpen(true); }}
+              onClick={() => {
+                setEditing(null);
+                setDialogOpen(true);
+              }}
               className="inline-flex items-center gap-1.5 rounded-lg gradient-emerald px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:shadow-elevated hover:-translate-y-0.5"
             >
               <Plus className="h-4 w-4" />
@@ -184,10 +198,34 @@ function ApplicationsPage() {
 
           {/* Stats */}
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-            <StatCard icon={Inbox} label="Total" value={stats.total} tone="text-foreground" delay={0} />
-            <StatCard icon={TrendingUp} label="Interviews" value={stats.interview} tone="text-info" delay={60} />
-            <StatCard icon={CheckCircle2} label="Offers" value={stats.offer} tone="text-primary" delay={120} />
-            <StatCard icon={XCircle} label="Rejected" value={stats.rejected} tone="text-muted-foreground" delay={180} />
+            <StatCard
+              icon={Inbox}
+              label="Total"
+              value={stats.total}
+              tone="text-foreground"
+              delay={0}
+            />
+            <StatCard
+              icon={TrendingUp}
+              label="Interviews"
+              value={stats.interview}
+              tone="text-info"
+              delay={60}
+            />
+            <StatCard
+              icon={CheckCircle2}
+              label="Offers"
+              value={stats.offer}
+              tone="text-primary"
+              delay={120}
+            />
+            <StatCard
+              icon={XCircle}
+              label="Rejected"
+              value={stats.rejected}
+              tone="text-muted-foreground"
+              delay={180}
+            />
           </div>
 
           {/* Filter bar */}
@@ -225,7 +263,13 @@ function ApplicationsPage() {
                 Loading…
               </div>
             ) : filtered.length === 0 ? (
-              <EmptyState onAdd={() => { setEditing(null); setDialogOpen(true); }} hasAny={apps.length > 0} />
+              <EmptyState
+                onAdd={() => {
+                  setEditing(null);
+                  setDialogOpen(true);
+                }}
+                hasAny={apps.length > 0}
+              />
             ) : (
               <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft animate-fade-in">
                 <div className="hidden grid-cols-12 gap-3 border-b border-border bg-muted/40 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground md:grid">
@@ -246,7 +290,8 @@ function ApplicationsPage() {
                         <div className="font-semibold">{a.company_name}</div>
                         {a.salary && (
                           <div className="mt-0.5 inline-flex items-center gap-1 text-xs text-muted-foreground">
-                            <DollarSign className="h-3 w-3" />{a.salary}
+                            <DollarSign className="h-3 w-3" />
+                            {a.salary}
                           </div>
                         )}
                       </div>
@@ -254,12 +299,15 @@ function ApplicationsPage() {
                         <div className="text-sm text-foreground">{a.role}</div>
                         {a.notes && (
                           <div className="mt-0.5 inline-flex items-center gap-1 text-xs text-muted-foreground line-clamp-1">
-                            <MessageSquare className="h-3 w-3 shrink-0" />{a.notes}
+                            <MessageSquare className="h-3 w-3 shrink-0" />
+                            {a.notes}
                           </div>
                         )}
                       </div>
                       <div className="md:col-span-2">
-                        <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${statusBadge[a.status as Status] ?? statusBadge.Applied}`}>
+                        <span
+                          className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${statusBadge[a.status as Status] ?? statusBadge.Applied}`}
+                        >
                           {a.status}
                         </span>
                       </div>
@@ -280,7 +328,10 @@ function ApplicationsPage() {
                           </a>
                         )}
                         <button
-                          onClick={() => { setEditing(a); setDialogOpen(true); }}
+                          onClick={() => {
+                            setEditing(a);
+                            setDialogOpen(true);
+                          }}
                           className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                           aria-label="Edit"
                         >
@@ -373,7 +424,11 @@ function EmptyState({ onAdd, hasAny }: { onAdd: () => void; hasAny: boolean }) {
 
 function formatDate(d: string) {
   try {
-    return new Date(d).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+    return new Date(d).toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   } catch {
     return d;
   }

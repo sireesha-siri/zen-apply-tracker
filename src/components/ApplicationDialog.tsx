@@ -108,7 +108,9 @@ export function ApplicationDialog({ open, onClose, initial, onSubmit }: Props) {
                 className={inputCls}
               >
                 {STATUSES.map((s) => (
-                  <option key={s} value={s}>{s}</option>
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
                 ))}
               </select>
             </Field>
